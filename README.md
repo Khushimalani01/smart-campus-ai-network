@@ -1,51 +1,162 @@
 # AI-Driven Intelligent Network for Smart Campus Applications
 
-Computer Networks mini project, UnitedWorld Institute of Technology, Karnavati University.
+## Presented By:
+1. Khushi Malani - KU2407U464
+2. Krishna Shah - KU2407U703
+3. Nirali Kodavala - KU2407U150
+4. Mansoor Anas - KU2407U696
 
-**Student:** Malani Khushi (202407020439)  
-**Guide:** Ms. Pragya Vats
+## Project Overview
 
-## Overview
-A smart campus runs Wi-Fi, IoT sensors, CCTV and e-learning systems on one shared network. This project is a learning prototype that uses machine learning to:
+This project explores how Artificial Intelligence and Machine Learning can help improve network monitoring and bandwidth planning in a smart campus environment.
 
-- predict the bandwidth demand of the next hour (Random Forest, compared with Linear Regression and a naive baseline), and
-- flag unusual traffic (Isolation Forest),
+The project consists of two separate prototypes:
 
-so that an administrator can get early warning of congestion and suggestions for QoS decisions.
+1. **Cisco Packet Tracer Simulation:** A basic campus network designed using routers, switches, PCs, laptops, wireless access points, and servers.
+2. **Python-Based AI/ML Prototype:** Uses simulated hourly campus network traffic to predict bandwidth usage and detect unusual traffic patterns.
 
-![Architecture](figures/architecture.png)
+**Note:** The Packet Tracer simulation and Python ML prototype are separate demonstrations. The ML model is not connected to a live campus network or the Packet Tracer topology.
 
-## Repository contents
-| Path | Description |
+## Objectives
+
+- Design and simulate a basic smart campus network.
+- Generate sample campus network traffic data.
+- Predict bandwidth usage using Machine Learning.
+- Compare different bandwidth prediction models.
+- Detect unusual traffic patterns using anomaly detection.
+- Explore how AI-based predictions can support network administrators.
+
+## Technologies Used
+
+**Network Simulation**
+- Cisco Packet Tracer
+- Routers and switches
+- PCs, laptops, wireless access points and servers
+- IPv4 addressing
+
+**AI/ML Implementation**
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+
+## Machine Learning Algorithms
+
+| Algorithm | Purpose |
 |---|---|
-| `prototype.py` | Full prototype: data simulation, features, models, metrics |
-| `requirements.txt` | Python libraries needed |
-| `figures/` | Architecture, topology, workflow and output charts |
-| `report/` | Mini project report (Word) |
-| `presentation/` | Project presentation (PowerPoint) |
+| Naive Previous-Day Baseline | Provides a basic reference for bandwidth prediction |
+| Linear Regression | Predicts bandwidth usage using traffic-related features |
+| Random Forest Regressor | Predicts bandwidth using multiple decision trees |
+| Isolation Forest | Detects unusual network traffic patterns |
 
-## How to run
-```
-pip install -r requirements.txt
-python prototype.py
-```
-The script simulates 60 days of hourly campus traffic, trains the models on the first 75% of the data (split by time) and prints the error of each forecasting model and the precision and recall of the anomaly detector.
+## Project Structure
 
-## Results (simulated data)
-| Model | MAE (Mbps) |
+```text
+AI-Driven-Intelligent-Network/
+│
+├── smart_campus_ai.py
+├── README.md
+└── results/
+    ├── model_comparison.csv
+    ├── anomaly_metrics.csv
+    ├── test_predictions.csv
+    ├── actual_vs_predicted.png
+    ├── feature_importance.png
+    └── anomaly_detection.png
+```
+
+The `results` folder is generated automatically after successfully executing the Python code.
+
+## How to Run the Project
+
+### Using Google Colab
+
+1. Open [Google Colab](https://colab.research.google.com/).
+2. Create a new notebook.
+3. Install the required libraries:
+
+```python
+!pip install numpy pandas matplotlib scikit-learn
+```
+
+4. Copy the complete Python code from `smart_campus_ai.py` into a code cell.
+5. Execute the cell and wait for the program to finish.
+6. The program generates a `results` folder containing evaluation files and graphs.
+
+### Running Locally
+
+Install Python and execute the following command in the terminal:
+
+```bash
+pip install numpy pandas matplotlib scikit-learn
+```
+
+Run the Python script:
+
+```bash
+python smart_campus_ai.py
+```
+
+The generated output files will be available in the `results` folder.
+
+## Generated Outputs
+
+| Output File | Description |
 |---|---|
-| Naive (same hour yesterday) | 101.6 |
-| Linear Regression | 48.3 |
-| Random Forest | 42.0 |
+| model_comparison.csv | Comparison of bandwidth prediction models |
+| anomaly_metrics.csv | Anomaly detection evaluation metrics |
+| test_predictions.csv | Actual and predicted bandwidth values |
+| actual_vs_predicted.png | Graph comparing actual and predicted bandwidth |
+| feature_importance.png | Random Forest feature importance graph |
+| anomaly_detection.png | Visualization of detected traffic anomalies |
 
-The Isolation Forest found all 7 inserted traffic spikes in the test period (recall 1.00) with precision 0.50, so some false alarms should be expected.
+The actual evaluation metrics and graphs are generated when the Python script is executed.
 
-These numbers come from a **simulated dataset**, so they show how the method works and are not measurements of a real campus network.
+## Cisco Packet Tracer Simulation
 
-![Forecast](figures/forecast_vs_actual.png)
+The network simulation represents a basic smart campus environment containing routers, switches, end devices, wireless connectivity and servers.
+
+Static IP addresses, subnet masks, default gateways and DNS settings are configured for network communication.
+
+Connectivity can be tested using the Command Prompt on a PC:
+
+```bash
+ping 192.168.50.10
+```
+
+A successful ping response indicates connectivity between the tested devices.
 
 ## Limitations
-Results depend on data quality, predictions can be wrong, and alerts need human review. Real network data must be anonymised and used only with permission.
 
-## References
-See the report for the full reference list.
+- The network traffic dataset is simulated and not collected from a real campus network.
+- The Packet Tracer simulation and Python ML implementation are separate prototypes.
+- The project does not perform live network monitoring.
+- The ML model does not automatically configure QoS policies.
+- The system is an academic prototype and is not intended for production deployment.
+
+## Future Scope
+
+- Integrating real-time network traffic monitoring.
+- Collecting real-world campus network traffic data.
+- Developing a web-based monitoring dashboard.
+- Implementing automated QoS recommendations.
+- Exploring SDN-based network management.
+- Improving prediction accuracy using larger datasets and advanced ML models.
+
+## Conclusion
+
+The project demonstrates how Machine Learning techniques can be applied to simulated campus network traffic for bandwidth prediction and anomaly detection. The Cisco Packet Tracer simulation provides a basic campus network design, while the Python prototype demonstrates the potential of AI-driven network analysis.
+
+Together, these implementations provide an educational foundation for exploring intelligent network management in smart campus environments.
+
+## Contributors
+
+1. Khushi Malani - KU2407U464
+2. Krishna Shah - KU2407U703
+3. Nirali Kodavala - KU2407U150
+4. Mansoor Anas - KU2407U696
+
+## Academic Note
+
+This project is developed for educational purposes as a Computer Networks mini project.
